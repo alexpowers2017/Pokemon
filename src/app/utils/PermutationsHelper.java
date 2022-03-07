@@ -29,72 +29,40 @@ public class PermutationsHelper {
 
     public static Integer[][] getAllIntegerPermutations(Integer[] arr) {
         if (arr == null || arr.length == 0) {
-            return new Object[][]{};
+            return new Integer[][]{};
         } else if (arr.length == 1) {
-            return new Object[][]{arr};
+            return new Integer[][]{arr};
         } else {
-
-        }
+            return new Integer[][]{arr};
         }
     }
 
-
-    public static Object[][] getAllPermutations(Object[] arr) {
-        if (arr == null || arr.length == 0) {
-            return new Object[][]{};
-        } else if (arr.length == 1) {
-            return new Object[][]{arr};
-        } else {
-            ArrayList<ArrayList<Object>> permutations = new ArrayList<>();
-
-            // Add first values to 2d list
-            for (int i = 0; i < factorial(arr.length); i++) {
-                int firstValueIndex = Math.floorDiv(i, factorial(arr.length - 1));
-                permutations.add(new ArrayList<>(Arrays.asList(arr[firstValueIndex])));
-            }
-
-            // Fill in remainder of list
-            for (int i = 0; i < arr.length - 1; i++) {
-                for (Object object : arr) {
-                    for (ArrayList<Object> permutation : permutations) {
-                        if (!permutation.contains(object)) { //&& !listContains(copyWithNewObject(permutation, object), permutations)) {
-                            permutation.add(object);
-                        }
-                    }
+        public static Integer[][] swapAllInSubArray(Integer[] arr) {
+            Integer[][] allSwapped = new Integer[factorial(arr.length)][arr.length];
+            allSwapped[0] = arr.clone();
+            for (int i = 1; i < factorial(arr.length); i++) {
+                if (i % 2 == 0) {
+                    allSwapped[i] = swap(arr, i);
+                } else {
+                    allSwapped[i] = swap(arr, 0);
                 }
             }
-
-            // Create final 2d array and populate with values of 2d list
-            Object[][] permutationsArray = new Object[factorial(arr.length)][arr.length];
-            for (int i = 0; i < permutations.size(); i++) {
-                permutationsArray[i] = permutations.get(i).toArray(new Object[arr.length]);
-            }
-
-            for (Object[] permutation : permutationsArray) {
-                for (Object value : permutation) {
-                    System.out.print(value + ", ");
-                }
-                System.out.println();
-            }
-            return permutationsArray;
+            return allSwapped;
         }
-    }
 
-        static boolean listContains(ArrayList<Object> comparisonList, ArrayList<ArrayList<Object>> listOfLists){
-            for(ArrayList<Object> existingList : listOfLists){
-                if (existingList.equals(comparisonList)) {
-                    return true;
+        public static Integer[] swap(Integer[] arr, Integer swapIndex) {
+            Integer[] swapped = new Integer[arr.length];
+            for (int i = 0; i < arr.length; i++) {
+                if (i == swapIndex) {
+                    swapped[i] = arr[arr.length - 1];
+                } else if (i == arr.length - 1) {
+                    swapped[i] = arr[swapIndex];
+                } else {
+                    swapped[i] = arr[i];
                 }
             }
-            return false;
+            return swapped;
         }
-
-        static ArrayList<Object> copyWithNewObject(ArrayList<Object> originalList, Object newObject) {
-            ArrayList<Object> copy = new ArrayList<>(originalList);
-            copy.add(newObject);
-            return copy;
-        }
-
 
 
 }
