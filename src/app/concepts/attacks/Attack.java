@@ -2,6 +2,7 @@ package app.concepts.attacks;
 
 import app.concepts.effects.Effect;
 import app.concepts.energy.Energy;
+import app.concepts.energy.EnergyMatcher;
 
 import java.util.ArrayList;
 
@@ -18,11 +19,17 @@ public class Attack {
     public String getDescription() { return this.description; }
     public ArrayList<Effect> getEffects() { return this.effects; }
 
-    public Attack(String name, ArrayList<Energy> energiesRequired, Integer damage, String description, ArrayList<Effect> effects) {
+    public Attack(String name, ArrayList<Energy> energiesRequired,
+                  Integer damage, String description, ArrayList<Effect> effects) {
         this.name = name;
         this.energiesRequired = energiesRequired;
         this.damage = damage;
         this.description = description;
         this.effects = effects;
     }
+
+    public Boolean energiesSatisfied(ArrayList<Energy> provided) {
+        return EnergyMatcher.allSatisfied(provided, this.getEnergiesRequired());
+    }
 }
+
