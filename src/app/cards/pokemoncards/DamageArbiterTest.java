@@ -1,12 +1,10 @@
 package app.cards.pokemoncards;
 
-import app.concepts.attacks.Attack;
-import app.concepts.energy.Energy;
-import app.concepts.type.Type;
+import app.attacks.Attack;
+import app.energy.Energy;
+import app.type.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DamageArbiterTest {
 

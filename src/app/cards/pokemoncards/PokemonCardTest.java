@@ -1,8 +1,9 @@
 package app.cards.pokemoncards;
 
-import app.concepts.attacks.Attack;
-import app.concepts.energy.Energy;
-import app.concepts.type.Type;
+import app.attacks.Attack;
+import app.effects.Effect;
+import app.energy.Energy;
+import app.type.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,10 +14,10 @@ class PokemonCardTest {
 
     Attack tackle = new Attack(
             "tackle",
-            new ArrayList<>() {{ add( new Energy(new Type("colorless"))); }},
+            new Energy[] {new Energy(new Type("colorless")) },
             10,
             "",
-            new ArrayList<>()
+            new Effect[]{}
     );
 
     PokemonCard voltorb = new PokemonCard(

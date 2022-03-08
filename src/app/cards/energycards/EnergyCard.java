@@ -1,7 +1,7 @@
 package app.cards.energycards;
 
 import app.cards.Card;
-import app.concepts.energy.Energy;
+import app.energy.Energy;
 
 
 public class EnergyCard extends Card {

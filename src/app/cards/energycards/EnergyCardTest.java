@@ -1,14 +1,9 @@
 package app.cards.energycards;
 
-import app.concepts.energy.Energy;
-import app.concepts.energy.EnergyBuilder;
+import app.energy.Energy;
+import app.energy.EnergyBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class EnergyCardTest {
 

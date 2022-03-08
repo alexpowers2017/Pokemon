@@ -1,6 +1,6 @@
 package app.cards.pokemoncards;
 
-import app.concepts.type.Type;
+import app.type.Type;
 
 public class DamageArbiter {
 

@@ -1,7 +1,7 @@
 package app.cards.energycards;
 
-import app.concepts.energy.Energy;
-import app.concepts.energy.EnergyBuilder;
+import app.energy.Energy;
+import app.energy.EnergyBuilder;
 
 public abstract class EnergyCardBuilder {
     public static EnergyCard getEnergyCard(String energyType) {
