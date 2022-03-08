@@ -18,55 +18,45 @@ public class EnergyMatcher {
         }
     }
 
-    public static Boolean allSatisfied (Energy[] providedEnergies, Energy[] requiredEnergies) {
-        if (providedEnergies == null || requiredEnergies == null || providedEnergies.length < requiredEnergies.length) {
+    public static Boolean allSatisfied(ArrayList<Energy> provided, ArrayList<Energy> required) {
+        if (provided == null || required == null || provided.size() < required.size()) {
             return false;
-        } else if (requiredEnergies.length == 0) {
+        } else if (required.size() == 0) {
             return true;
-        } else if (requiredEnergies.length == 1) {
-            for (Energy provided : providedEnergies) {
-                if (satisfies(provided, requiredEnergies[0])) {
+        }
+        else if (required.size() == 1) {
+            for (Energy energy : provided) {
+                if (satisfies(energy, required.get(0))) {
                     return true;
                 }
             }
         } else {
-            ArrayList<ArrayList<Boolean>> allResults;
-            for (Energy provided : providedEnergies) {
-                ArrayList<Energy[]> allRequiredCombinations = new ArrayList<>();
-                for (Energy required : requiredEnergies) {
-                    allRequiredCombinations.add(new Energy[]{provided, required});
+            ArrayList<ArrayList<Energy>> permutations = getPermutations(required);
+            for (ArrayList<Energy> permutation : permutations) {
+                ArrayList<Boolean> results = new ArrayList<>();
+                for (int i = 0; i < required.size(); i++) {
+                    results.add(satisfies(provided.get(i), permutation.get(i)));
                 }
-//                for (Energy[] combination : allRequiredCombinations) {
-//                    System.out.println(combination[0].getTypeName() + " : " + combination[1].getTypeName());
-//                }
-//                System.out.println("-------------------");
+                if (!results.contains(false)) {
+                    return true;
+                }
             }
-//            for (Energy[] combination : allCombinations) {
-//                System.out.println(combination[0].getTypeName() + " : " + combination[1].getTypeName());
-//            }
         }
         return false;
     }
 
-    public static int getFactorial(Integer n) {
-        int result = 1;
-        for (int i = 0; i < n; i++) {
-            result = result * (i + 1);
-        }
-        return result;
-    }
-
-    public static Energy[][] getAllCombinations(Energy[] energies) {
-        int combinationsCount = getFactorial(energies.length);
-        ArrayList<Energy[]> combinationsList = new ArrayList<>();
-        for (int i = 0; i < energies.length; i++) {
-            for (int j = 0; j < energies.length; j++) {
-                if (i != j) {
-                    combinationsList.add(new Energy[]{energies[i], energies[j]});
-                }
+        public static ArrayList<ArrayList<Energy>> getPermutations(ArrayList<Energy> energies) {
+            ArrayList<ArrayList<Energy>> permutations = new ArrayList<>();
+            permutations.add(energies);
+            if (energies.size() == 2) {
+                permutations.add(new ArrayList<>() {{add(energies.get(1)); add(energies.get(0)); }});
+            } else if (energies.size() == 3) {
+                permutations.add(new ArrayList<>() {{add(energies.get(0)); add(energies.get(2)); add(energies.get(1)); }});
+                permutations.add(new ArrayList<>() {{add(energies.get(1)); add(energies.get(0)); add(energies.get(2)); }});
+                permutations.add(new ArrayList<>() {{add(energies.get(1)); add(energies.get(2)); add(energies.get(0)); }});
+                permutations.add(new ArrayList<>() {{add(energies.get(2)); add(energies.get(0)); add(energies.get(1)); }});
+                permutations.add(new ArrayList<>() {{add(energies.get(2)); add(energies.get(1)); add(energies.get(0)); }});
             }
+            return permutations;
         }
-        Energy[][] combinations = new Energy[combinationsCount][2];
-        return combinationsList.toArray(combinations);
-    }
 }

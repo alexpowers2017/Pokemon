@@ -28,10 +28,6 @@ public class PermutationsHelper {
         }
         return factorial(n) / factorial(n - r);
     }
-
-    public static Map<String, Object>[] getChunks(ArrayList<Integer> arrayList) {
-        Map<String, Object>[] chunks = new Map[];
-    }
 }
 
 
