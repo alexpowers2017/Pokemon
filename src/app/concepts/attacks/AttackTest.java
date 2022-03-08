@@ -16,7 +16,8 @@ class AttackTest {
             new ArrayList<>() {{ add(colorless); }},
             10,
             "",
-            new ArrayList<>());
+            new ArrayList<>()
+    );
 
     @Test
     void initAttack() {

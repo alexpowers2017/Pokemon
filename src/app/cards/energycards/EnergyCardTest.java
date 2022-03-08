@@ -15,7 +15,7 @@ class EnergyCardTest {
     @Test
     void singleInitAssignsName() {
         EnergyCard card = new EnergyCard("fire energy", EnergyBuilder.getEnergy("fire"));
-        Assertions.assertEquals("energy", card.getType());
+        Assertions.assertEquals("energy", card.getCategory());
         Assertions.assertEquals("fire energy", card.getName());
         Assertions.assertEquals("fire", card.getEnergies()[0].getTypeName());
     }
