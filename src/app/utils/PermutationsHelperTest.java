@@ -102,80 +102,9 @@ class NPRTest {
 }
 
 
-class GetAllPermutationsTest {
-
-    void assertPermutated(Integer[][] expected, Integer[] input) {
-        Assertions.assertArrayEquals(expected, PermutationsHelper.getAllIntegerPermutations(input));
-    }
+class SwapTest {
 
     @Test
-    void givenNull_returnsEmptyArray() {
-        assertPermutated(new Integer[][]{}, null);
-    }
+    void givenNull_returnsEmptyArray
 
-    @Test
-    void givenEmptyArray_returnsEmpty2dArray() {
-        assertPermutated(new Integer[][]{}, new Integer[]{});
-    }
-
-    @Test
-    void givenLengthOne_returnsWrapped2dArray() {
-        assertPermutated(new Integer[][]{{1}}, new Integer[]{1});
-    }
-
-//    @Test
-//    void givenLengthTwo() {
-//        assertPermutated(new Integer[][]{{1, 2}, {2, 1}}, new Integer[]{1, 2});
-//    }
-
-//    @Test
-//    void givenLengthThree() {
-//        assertPermutated(new Integer[][]{{1, 2, 3}, {1, 3, 2}, {2, 1, 3}, {2, 3, 1}, {3, 1, 2}, {3, 2, 1}}, new Integer[]{1, 2, 3});
-//    }
-//
-//    @Test
-//    void givenLengthFour() {
-//        Integer[][] expectedIntArray = new Integer[][]{
-//                {1, 2, 3, 4},
-//                {1, 2, 4, 3},
-//                {1, 3, 2, 4},
-//                {1, 3, 4, 2},
-//                {1, 4, 2, 3},
-//                {1, 4, 3, 2},
-//
-//                {2, 1, 3, 4},
-//                {2, 1, 4, 3},
-//                {2, 3, 1, 4},
-//                {2, 3, 4, 1},
-//                {2, 4, 1, 3},
-//                {2, 4, 3, 1},
-//
-//                {3, 1, 2, 4},
-//                {3, 1, 4, 2},
-//                {3, 2, 1, 4},
-//                {3, 2, 4, 1},
-//                {3, 4, 1, 2},
-//                {3, 4, 2, 1},
-//
-//                {4, 1, 2, 3},
-//                {4, 1, 3, 2},
-//                {4, 2, 1, 3},
-//                {4, 2, 3, 1},
-//                {4, 3, 1, 2},
-//                {4, 3, 2, 1},
-//        };
-//        assertPermutated(expectedIntArray, new Integer[]{1, 2, 3, 4});
-//    }
-
-    @Test
-    void swapElements() {
-        Assertions.assertArrayEquals(new Integer[]{2, 1}, PermutationsHelper.swap(new Integer[]{1, 2}, 0));
-        Assertions.assertArrayEquals(new Integer[]{1, 3, 2}, PermutationsHelper.swap(new Integer[]{1, 2, 3}, 1));
-        Assertions.assertArrayEquals(new Integer[]{1, 4, 3, 2}, PermutationsHelper.swap(new Integer[]{1, 2, 3, 4}, 1));
-    }
-
-    @Test
-    void swapAllInSubArray() {
-        Assertions.assertArrayEquals(new Integer[][]{{1, 2}, {2, 1}}, PermutationsHelper.swapAllInSubArray(new Integer[]{1, 2}));
-    }
 }
