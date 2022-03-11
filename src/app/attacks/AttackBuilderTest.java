@@ -34,9 +34,7 @@ class AttackBuilderTest {
         Energy[] energies = AttackBuilder.getEnergies(names);
         Assertions.assertEquals(2, energies.length);
         Assertions.assertInstanceOf(Energy.class, energies[0]);
-        Assertions.assertEquals("colorless energy", energies[0].getName());
         Assertions.assertInstanceOf(Energy.class, energies[1]);
-        Assertions.assertEquals("colorless energy", energies[1].getName());
     }
 
     @Test

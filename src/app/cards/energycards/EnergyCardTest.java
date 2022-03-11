@@ -10,9 +10,7 @@ class EnergyCardTest {
     @Test
     void singleInitAssignsName() {
         EnergyCard card = new EnergyCard("fire energy", EnergyBuilder.getEnergy("fire"));
-        Assertions.assertEquals("energy", card.getCategory());
-        Assertions.assertEquals("fire energy", card.getName());
-        Assertions.assertEquals("fire", card.getEnergies()[0].getTypeName());
+        Assertions.assertEquals("fire", card.getEnergies()[0].getType());
     }
 
     @Test
@@ -20,7 +18,7 @@ class EnergyCardTest {
         EnergyCard card = new EnergyCard("water energy", EnergyBuilder.getEnergy("water"));
         Assertions.assertInstanceOf(Energy[].class, card.getEnergies());
         Assertions.assertEquals(1, card.getEnergies().length);
-        Assertions.assertEquals("water", card.getEnergies()[0].getTypeName());
+        Assertions.assertEquals("water", card.getEnergies()[0].getType());
     }
 
     @Test

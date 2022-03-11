@@ -7,8 +7,7 @@ class EnergyBuilderTest {
 
     void buildsCorrectly(String typeName) {
         Energy energy = EnergyBuilder.getEnergy(typeName);
-        Assertions.assertEquals(typeName, energy.getTypeName());
-        Assertions.assertEquals(typeName + " energy", energy.getName());
+        Assertions.assertEquals(typeName, energy.getType());
         Assertions.assertInstanceOf(Energy.class, energy);
     }
 

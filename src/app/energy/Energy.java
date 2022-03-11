@@ -1,43 +1,38 @@
 package app.energy;
 
-import app.type.Type;
+import app.type.TypedObject;
 
-public class Energy {
-    private final Type type;
+public class Energy extends TypedObject {
 
-    public Type getType() { return this.type; }
-    public String getTypeName() { return this.type.getName(); }
-    public String getName() { return this.type.getName() + " energy"; }
-
-    public Energy(Type energyType) {
-        this.type = energyType;
+    public Energy(String typeName) {
+        super(typeName);
     }
 
     public boolean satisfiedBy(Energy providedEnergy) {
-        return providedEnergy != null && this.getType().matches(providedEnergy.getType());
+        return providedEnergy != null && this.sameType(providedEnergy);
     }
 
     public boolean satisfies(Energy requiredEnergy) {
-        return requiredEnergy == null || this.type.matches(requiredEnergy.getType());
+        return requiredEnergy == null || this.sameType(requiredEnergy);
     }
 }
 
 
 class BasicEnergy extends Energy {
-    public BasicEnergy(Type energyType) {
-        super(energyType);
+    public BasicEnergy(String typeName) {
+        super(typeName);
     }
 
     @Override
     public boolean satisfies(Energy requiredEnergy) {
-        return super.satisfies(requiredEnergy) || requiredEnergy.getTypeName().equals("colorless");
+        return super.satisfies(requiredEnergy) || requiredEnergy.getType().equals("colorless");
     }
 }
 
 
 class ColorlessEnergy extends Energy {
-    public ColorlessEnergy(Type energyType) {
-        super(energyType);
+    public ColorlessEnergy(String typeName) {
+        super(typeName);
     }
 
     @Override
