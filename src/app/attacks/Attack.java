@@ -2,7 +2,6 @@ package app.attacks;
 
 import app.effects.Effect;
 import app.energy.Energy;
-import app.energy.EnergyMatcher;
 
 import java.util.ArrayList;
 
@@ -29,8 +28,5 @@ public record Attack(String name, Energy[] energiesRequired, Integer damage,
         return this.effects;
     }
 
-    public Boolean energiesSatisfied(ArrayList<Energy> provided) {
-        return EnergyMatcher.allSatisfied(provided, this.getEnergiesRequired());
-    }
 }
 

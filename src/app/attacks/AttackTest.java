@@ -29,12 +29,4 @@ class AttackTest {
         Assertions.assertArrayEquals(new Effect[]{}, sampleAttack.getEffects());
     }
 
-    @Test
-    void energiesSatisfied() {
-        Energy colorless1 = EnergyBuilder.getEnergy("colorless");
-        Energy fire = EnergyBuilder.getEnergy("fire");
-        Assertions.assertTrue(sampleAttack.energiesSatisfied(new ArrayList<>() {{add(colorless1); }}) );
-        Assertions.assertTrue(sampleAttack.energiesSatisfied(new ArrayList<>() {{add(fire); }}) );
-    }
-
 }
