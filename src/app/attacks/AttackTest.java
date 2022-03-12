@@ -1,12 +1,9 @@
 package app.attacks;
 
-import app.effects.Effect;
 import app.energy.Energy;
 import app.energy.EnergyBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 
 class AttackTest {
@@ -16,8 +13,7 @@ class AttackTest {
             "tackle",
             new Energy[]{colorless},
             10,
-            "",
-            new Effect[]{}
+            ""
     );
 
     @Test
@@ -26,7 +22,6 @@ class AttackTest {
         Assertions.assertEquals(colorless, sampleAttack.getEnergiesRequired()[0]);
         Assertions.assertEquals(10, sampleAttack.getDamage());
         Assertions.assertEquals("", sampleAttack.getDescription());
-        Assertions.assertArrayEquals(new Effect[]{}, sampleAttack.getEffects());
     }
 
 }

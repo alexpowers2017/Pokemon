@@ -1,13 +1,9 @@
 package app.attacks;
 
-import app.effects.Effect;
 import app.energy.Energy;
 
-import java.util.ArrayList;
 
-
-public record Attack(String name, Energy[] energiesRequired, Integer damage,
-                     String description, Effect[] effects) {
+public record Attack(String name, Energy[] energiesRequired, Integer damage, String description) {
     public String getName() {
         return this.name;
     }
@@ -23,10 +19,5 @@ public record Attack(String name, Energy[] energiesRequired, Integer damage,
     public String getDescription() {
         return this.description;
     }
-
-    public Effect[] getEffects() {
-        return this.effects;
-    }
-
 }
 
