@@ -16,7 +16,7 @@ public class TypedObject {
         this.type = type;
     }
 
-    public boolean sameType(TypedObject provided) {
+    public boolean equals(TypedObject provided) {
         return provided != null && this.getType().equals(provided.getType());
     }
 

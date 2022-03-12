@@ -14,6 +14,7 @@ class EnergySeriesTest {
     Energy grass = new Energy("grass");
     Energy psychic = new Energy("psychic");
     Energy colorless = new Energy("colorless");
+    Energy lightning = new Energy("lightning");
 
     EnergySeries emptySeries = new EnergySeries(new ArrayList<>());
     EnergySeries fireSeries = new EnergySeries(new ArrayList<>(){{add(fire);}});
@@ -25,6 +26,12 @@ class EnergySeriesTest {
         add(psychic);
         add(grass);
         add(colorless);
+    }});
+    EnergySeries fireWaterLightningGrass = new EnergySeries(new ArrayList<>(){{
+        add(fire);
+        add(water);
+        add(lightning);
+        add(grass);
     }});
 
     @Test
@@ -110,6 +117,40 @@ class EnergySeriesTest {
             add(new ArrayList<>(){{ add(colorless); add(grass); add(psychic); }});
         }};
         Assertions.assertEquals(expected, psychicGrassColorless.getPermutations());
+    }
+
+    @Test
+    void getPermutations_lengthFour() {
+        ArrayList<ArrayList<Energy>> expected = new ArrayList<>() {{
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+            add(new ArrayList<>(){{ add(fire); add(water); add(lightning); add(grass); }});
+        }};
+        Assertions.assertEquals(expected, fireWaterLightningGrass.getPermutations());
     }
 
     @Test

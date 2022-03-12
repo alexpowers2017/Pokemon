@@ -46,45 +46,45 @@ class TypedObjectTest {
     @Test
     void sameType_givenNull_returnsFalse() {
         TypedObject fire = new TypedObject("fire");
-        Assertions.assertFalse(fire.sameType(null));
+        Assertions.assertFalse(fire.equals(null));
     }
 
     @Test
     void sameType_givenMatchingType_returnsTrue() {
         TypedObject colorless = new TypedObject("colorless");
-        Assertions.assertTrue(colorless.sameType(new TypedObject("colorless")));
+        Assertions.assertTrue(colorless.equals(new TypedObject("colorless")));
 
         TypedObject fire = new TypedObject("fire");
-        Assertions.assertTrue(fire.sameType(new TypedObject("fire")));
+        Assertions.assertTrue(fire.equals(new TypedObject("fire")));
 
         TypedObject water = new TypedObject("water");
-        Assertions.assertTrue(water.sameType(new TypedObject("water")));
+        Assertions.assertTrue(water.equals(new TypedObject("water")));
 
         TypedObject lightning = new TypedObject("lightning");
-        Assertions.assertTrue(lightning.sameType(new TypedObject("lightning")));
+        Assertions.assertTrue(lightning.equals(new TypedObject("lightning")));
 
         TypedObject psychic = new TypedObject("psychic");
-        Assertions.assertTrue(psychic.sameType(new TypedObject("psychic")));
+        Assertions.assertTrue(psychic.equals(new TypedObject("psychic")));
 
         TypedObject fighting = new TypedObject("fighting");
-        Assertions.assertTrue(fighting.sameType(new TypedObject("fighting")));
+        Assertions.assertTrue(fighting.equals(new TypedObject("fighting")));
 
         TypedObject grass = new TypedObject("grass");
-        Assertions.assertTrue(grass.sameType(new TypedObject("grass")));
+        Assertions.assertTrue(grass.equals(new TypedObject("grass")));
     }
 
     @Test
     void sameType_givenNonMatchingType_returnsFalse() {
         TypedObject colorless = new TypedObject("colorless");
-        Assertions.assertFalse(colorless.sameType(new TypedObject("fire")));
+        Assertions.assertFalse(colorless.equals(new TypedObject("fire")));
 
         TypedObject fire = new TypedObject("fire");
-        Assertions.assertFalse(fire.sameType(new TypedObject("water")));
+        Assertions.assertFalse(fire.equals(new TypedObject("water")));
 
         TypedObject water = new TypedObject("water");
-        Assertions.assertFalse(water.sameType(new TypedObject("fighting")));
+        Assertions.assertFalse(water.equals(new TypedObject("fighting")));
 
         TypedObject lightning = new TypedObject("lightning");
-        Assertions.assertFalse(lightning.sameType(new TypedObject("colorless")));
+        Assertions.assertFalse(lightning.equals(new TypedObject("colorless")));
     }
 }

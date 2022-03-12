@@ -9,11 +9,11 @@ public class Energy extends TypedObject {
     }
 
     public boolean satisfiedBy(Energy providedEnergy) {
-        return providedEnergy != null && this.sameType(providedEnergy);
+        return providedEnergy != null && this.equals(providedEnergy);
     }
 
     public boolean satisfies(Energy requiredEnergy) {
-        return requiredEnergy == null || this.sameType(requiredEnergy);
+        return requiredEnergy == null || this.equals(requiredEnergy);
     }
 }
 
