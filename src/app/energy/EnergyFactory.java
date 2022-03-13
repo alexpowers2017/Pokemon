@@ -1,8 +1,8 @@
 package app.energy;
 
-public abstract class EnergyBuilder {
+public abstract class EnergyFactory {
 
-    public static Energy getEnergy(String typeName) {
+    public static Energy build(String typeName) {
         if (typeName.equals("colorless")) {
             return new ColorlessEnergy(typeName);
         } else {

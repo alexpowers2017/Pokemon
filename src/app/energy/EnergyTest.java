@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 
 
 class SatisfiesTest {
-    Energy waterEnergy1 = EnergyBuilder.getEnergy("water");
-    Energy waterEnergy2 = EnergyBuilder.getEnergy("water");
-    Energy colorlessEnergy1 = EnergyBuilder.getEnergy("colorless");
-    Energy colorlessEnergy2 = EnergyBuilder.getEnergy("colorless");
-    Energy fireEnergy1 = EnergyBuilder.getEnergy("fire");
-    Energy fireEnergy2 = EnergyBuilder.getEnergy("fire");
-    Energy psychicEnergy = EnergyBuilder.getEnergy("psychic");
-    Energy lightningEnergy = EnergyBuilder.getEnergy("lightning");
+    Energy waterEnergy1 = EnergyFactory.build("water");
+    Energy waterEnergy2 = EnergyFactory.build("water");
+    Energy colorlessEnergy1 = EnergyFactory.build("colorless");
+    Energy colorlessEnergy2 = EnergyFactory.build("colorless");
+    Energy fireEnergy1 = EnergyFactory.build("fire");
+    Energy fireEnergy2 = EnergyFactory.build("fire");
+    Energy psychicEnergy = EnergyFactory.build("psychic");
+    Energy lightningEnergy = EnergyFactory.build("lightning");
 
     void assertSatisfies(Energy providedEnergy, Energy requiredEnergy) {
         Assertions.assertTrue(providedEnergy.satisfies(requiredEnergy));
@@ -52,14 +52,14 @@ class SatisfiesTest {
 }
 
 class SatisfiedByTest {
-    Energy waterEnergy1 = EnergyBuilder.getEnergy("water");
-    Energy waterEnergy2 = EnergyBuilder.getEnergy("water");
-    Energy colorlessEnergy1 = EnergyBuilder.getEnergy("colorless");
-    Energy colorlessEnergy2 = EnergyBuilder.getEnergy("colorless");
-    Energy fireEnergy1 = EnergyBuilder.getEnergy("fire");
-    Energy fireEnergy2 = EnergyBuilder.getEnergy("fire");
-    Energy psychicEnergy = EnergyBuilder.getEnergy("psychic");
-    Energy lightningEnergy = EnergyBuilder.getEnergy("lightning");
+    Energy waterEnergy1 = EnergyFactory.build("water");
+    Energy waterEnergy2 = EnergyFactory.build("water");
+    Energy colorlessEnergy1 = EnergyFactory.build("colorless");
+    Energy colorlessEnergy2 = EnergyFactory.build("colorless");
+    Energy fireEnergy1 = EnergyFactory.build("fire");
+    Energy fireEnergy2 = EnergyFactory.build("fire");
+    Energy psychicEnergy = EnergyFactory.build("psychic");
+    Energy lightningEnergy = EnergyFactory.build("lightning");
 
     void assertSatisfiedBy(Energy providedEnergy, Energy requiredEnergy) {
         Assertions.assertTrue(requiredEnergy.satisfiedBy(providedEnergy));

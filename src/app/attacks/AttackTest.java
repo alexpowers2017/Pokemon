@@ -1,14 +1,14 @@
 package app.attacks;
 
 import app.energy.Energy;
-import app.energy.EnergyBuilder;
+import app.energy.EnergyFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
 class AttackTest {
 
-    Energy colorless = EnergyBuilder.getEnergy("colorless");
+    Energy colorless = EnergyFactory.build("colorless");
     Attack sampleAttack = new Attack(
             "tackle",
             new Energy[]{colorless},

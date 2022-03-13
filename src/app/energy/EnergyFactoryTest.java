@@ -3,10 +3,10 @@ package app.energy;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class EnergyBuilderTest {
+class EnergyFactoryTest {
 
     void buildsCorrectly(String typeName) {
-        Energy energy = EnergyBuilder.getEnergy(typeName);
+        Energy energy = EnergyFactory.build(typeName);
         Assertions.assertEquals(typeName, energy.getType());
         Assertions.assertInstanceOf(Energy.class, energy);
     }
@@ -24,14 +24,14 @@ class EnergyBuilderTest {
 
     @Test
     void givenColorless_buildColorlessEnergy() {
-        Energy colorlessEnergy = EnergyBuilder.getEnergy("colorless");
+        Energy colorlessEnergy = EnergyFactory.build("colorless");
         Assertions.assertInstanceOf(ColorlessEnergy.class, colorlessEnergy);
     }
 
     @Test
     void givenInvalidName_throwsException() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Energy invalidEnergy = EnergyBuilder.getEnergy("fsl");
+            Energy invalidEnergy = EnergyFactory.build("fsl");
         });
     }
 }
