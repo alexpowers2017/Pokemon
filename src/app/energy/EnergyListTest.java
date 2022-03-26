@@ -117,6 +117,18 @@ class EnergyListTest {
     }
 
     @Test
+    void containsAll_givenSingleMatch_returnsFalse() {
+        addEnergy("fire");
+        Assertions.assertFalse(list.containsAll(getList("fire", "fire", "fire")));
+    }
+
+    @Test
+    void containsAll_givenMultipleButNotAllMatches_returnsFalse() {
+        addEnergy("grass", "water");
+        Assertions.assertFalse(list.containsAll(getList("grass", "water", "grass")));
+    }
+
+    @Test
     void indexOf() {
         addEnergy("grass", "fighting", "grass");
         Assertions.assertEquals(-1, list.indexOf(getEnergy("psychic")));
@@ -166,33 +178,4 @@ class EnergyListTest {
         Assertions.assertFalse(list.removeAll(getList("psychic", "lightning")));
         Assertions.assertEquals(3, list.size());
     }
-
-    @Test
-    void equals_givenNull_returnsFalse() {
-        addEnergy("water");
-        Assertions.assertFalse(list.equals(null));
-    }
-
-    @Test
-    void equals_differentLengths_returnsFalse() {
-        addEnergy("fire", "water");
-        Assertions.assertFalse(list.equals(getList("psychic")));
-        Assertions.assertFalse(list.equals(getList("fire", "water", "water")));
-    }
-
-    @Test
-    void equals_givenMatching_returnsTrue() {
-        Assertions.assertTrue(getList("fire").equals(getList("fire")));
-        Assertions.assertTrue(getList("water", "psychic").equals(getList("water", "psychic")));
-        Assertions.assertTrue(getList("lightning", "fighting", "grass").equals(getList("lightning", "fighting", "grass")));
-    }
-
-    @Test
-    void satisfiedBy() {
-        addEnergy("water");
-        Assertions.assertFalse(list.satisfiedBy(getList("psychic")));
-        //Assertions.assertTrue(list.satisfiedBy(getList("water")));
-    }
-
-
 }
